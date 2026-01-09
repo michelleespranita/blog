@@ -1,0 +1,7 @@
+[submodule "michelleespranitablog/themes/paper"]
+	path = michelleespranitablog/themes/paper
+	url = https://github.com/nanxiaobei/hugo-paper
+[submodule "michelleespranitablog/public"]
+	path = michelleespranitablog/public
+	url = git@github.com:michelleespranita/michelleespranita.github.io.git
+	branch = main
