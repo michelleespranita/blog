@@ -4,5 +4,3 @@ title = 'Blog'
 +++
 
 ## Blogs
-
-asdasd
