@@ -1,0 +1,8 @@
+{{- define "main" -}}
+    {{ with site.GetPage "about"}}  
+        {{ .Content }}
+    {{ end }}
+    {{ with site.GetPage "publications"}}  
+        {{ .Content }}
+    {{ end }}
+{{- end -}}
