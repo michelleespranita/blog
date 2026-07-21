@@ -1,0 +1,105 @@
+{{- define "main" -}}
+
+<article class="not-prose">
+  <header class="mb-10">
+    <h1 class="mt-0 mb-0 text-4xl font-semibold text-black dark:text-white">
+      {{- .Title -}}
+    </h1>
+  </header>
+
+  {{- with .Params.scholar_url -}}
+  <a class="btn mb-10 inline-block" href="{{- . -}}" target="_blank" rel="noopener"
+    >View Google Scholar Profile</a
+  >
+  {{- end -}}
+
+  {{- with .Params.research_areas -}}
+  <section class="mb-10">
+    <h2 class="mb-3 text-xl font-semibold text-black dark:text-white">
+      Research Areas
+    </h2>
+    <p class="text-lg leading-[1.8] opacity-80">
+      {{- delimit . "; " -}}
+    </p>
+  </section>
+  {{- end -}}
+
+  {{- with .Params.publication -}}
+  <section>
+    <h2 class="mb-5 text-xl font-semibold text-black dark:text-white">
+      Selected Publications
+    </h2>
+
+    <div class="flex flex-col gap-5">
+      {{- range . -}}
+      <div
+        class="rounded-xl border-[0.5px] border-black/10 dark:border-white/10"
+      >
+        <div class="flex flex-col gap-5 p-6 sm:flex-row">
+          {{- with .image -}}
+          <div
+            class="h-40 w-full shrink-0 overflow-hidden rounded-lg bg-black/[3%] sm:h-auto sm:w-48 dark:bg-white/[6%]"
+          >
+            <img
+              class="h-full w-full object-cover"
+              src="{{- . | absURL -}}"
+              alt=""
+            />
+          </div>
+          {{- end -}}
+
+          <div class="min-w-0 flex-1">
+            <h3 class="mt-0 mb-2 text-lg leading-snug font-semibold">
+              {{- if .paper_url -}}
+              <a
+                class="text-black no-underline hover:underline dark:text-white"
+                href="{{- .paper_url -}}"
+                target="_blank"
+                rel="noopener"
+                >{{- .title -}}</a
+              >
+              {{- else -}}
+              <span class="text-black dark:text-white">{{- .title -}}</span>
+              {{- end -}}
+            </h3>
+
+            {{- with .authors -}}
+            <p class="mt-0 mb-2 text-sm opacity-70">{{- . | safeHTML -}}</p>
+            {{- end -}}
+
+            {{- with .venue -}}
+            <p class="mt-0 mb-4 text-sm opacity-70">
+              Venue: <span class="font-medium">{{- . -}}</span>
+            </p>
+            {{- end -}}
+
+            <div class="flex flex-wrap gap-3">
+              {{- with .paper_url -}}
+              <a
+                class="text-sm font-medium text-black no-underline opacity-70 hover:opacity-100 dark:text-white"
+                href="{{- . -}}"
+                target="_blank"
+                rel="noopener"
+                >📄 Paper</a
+              >
+              {{- end -}}<!---->
+              {{- with .code_url -}}
+              <a
+                class="text-sm font-medium text-black no-underline opacity-70 hover:opacity-100 dark:text-white"
+                href="{{- . -}}"
+                target="_blank"
+                rel="noopener"
+                >💻 Code</a
+              >
+              {{- end -}}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{- end -}}
+    </div>
+  </section>
+  {{- end -}}
+</article>
+
+{{- end -}}

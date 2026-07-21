@@ -17,7 +17,7 @@ In the first few months, I struggled with needing to prove myself “worthy” o
 
 “This is supposed to be such a basic concept. Why haven’t I understood this (or why have I forgotten this)?”
 
-Slowly but surely, impostor syndrome crept in. I had done research before during my bachelor's and master’s. I had published a few papers before. I had read countless AI papers before starting my PhD. It’s not like I was completely inexperienced. So, was I not already supposed to be like a second-year PhD student?
+Slowly but surely, impostor syndrome crept in. I had done research before during my bachelor's and master’s. I had published a few papers before. I had read countless AI papers before starting my PhD. It’s not like I was completely inexperienced. So, was I not already supposed to be like a first-year PhD student?
 ​
 
 Also, how many hours was I supposed to work a day? 8 is the standard number of hours when you work an office job, so that was what I strived for. But I kept failing day after day, already feeling tired before I completed 8 hours of work. Was I just lazy?

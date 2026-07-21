@@ -1,11 +1,19 @@
 +++
-menus = ['main']
 title = 'About'
-url = '/'
-weight = 1
+photo = 'images/michelle.jpg'
+
+[[links]]
+label = 'LinkedIn'
+url = 'https://linkedin.com/in/michelleespra'
+icon = 'linkedin'
+
+[[links]]
+label = 'GitHub'
+url = 'https://github.com/michelleespranita'
+icon = 'github'
 +++
 
-Heylo! I’m Michelle, a first-year PhD student at the Chair for AI in Healthcare and Medicine at the Technical University or Munich, advised by Prof. Daniel Rueckert.
+Heylo! I’m Michelle, a second-year PhD student at the Chair for AI in Healthcare and Medicine at the Technical University of Munich, advised by Prof. Daniel Rueckert.
 
 🫀 My research interest lies in developing deep learning-based models to predict clinical outcomes based on **echocardiograms** and other cardiac modalities like ECG.
 

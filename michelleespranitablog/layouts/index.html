@@ -1,9 +1,53 @@
 {{- define "main" -}}
-    {{ with site.GetPage "about"}}  
-        {{ .Content }}
-    {{ end }}
+{{- with site.GetPage "about" -}}
 
-    {{ with site.GetPage "publications"}}  
-        {{ .Content }}
-    {{ end }}
+<div
+  class="not-prose flex flex-col items-center gap-10 sm:flex-row sm:items-start sm:gap-14"
+>
+  {{- with .Params.photo -}}
+  <div
+    class="h-48 w-48 shrink-0 overflow-hidden rounded-full border-[0.5px] border-black/10 sm:h-56 sm:w-56 dark:border-white/10"
+  >
+    <img
+      class="h-full w-full object-cover"
+      style="object-position: 50% 14%"
+      src="{{- . | absURL -}}"
+      alt="{{- site.Params.name | default site.Title -}}"
+    />
+  </div>
+  {{- end -}}
+
+  <div class="min-w-0 flex-1 text-center sm:text-left">
+    <h1 class="mt-0 mb-5 text-4xl font-semibold text-black dark:text-white">
+      {{- site.Title -}}
+    </h1>
+
+    <div class="prose prose-neutral dark:prose-invert max-w-none text-lg leading-[1.8]">
+      {{- .Content -}}
+    </div>
+
+    {{- with .Params.links -}}
+    <ul class="mt-8 flex flex-col items-center gap-3 sm:items-start">
+      {{- range . -}}
+      <li>
+        <a
+          class="inline-flex items-center gap-3 text-base font-medium text-black no-underline opacity-80 hover:opacity-100 dark:text-white"
+          href="{{- .url -}}"
+          target="_blank"
+          rel="noopener"
+        >
+          <span
+            class="h-5 w-5 shrink-0 dark:invert"
+            style="background: url('{{- printf `%s.svg` .icon | absURL -}}') center center / contain no-repeat"
+          ></span>
+          {{- .label -}}
+        </a>
+      </li>
+      {{- end -}}
+    </ul>
+    {{- end -}}
+  </div>
+</div>
+
+{{- end -}}
 {{- end -}}
