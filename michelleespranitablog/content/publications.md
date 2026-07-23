@@ -6,7 +6,7 @@ research_areas = ['Deep Learning', 'Echocardiography', 'Multimodal Learning', 'V
 
 [[publication]]
 title = 'Echo2ECG: Enhancing ECG Representations with Cardiac Morphology from Multi-View Echos'
-venue = 'MICCAI 2025'
+venue = 'MICCAI 2026'
 paper_url = 'https://arxiv.org/pdf/2603.08505'
 code_url = 'https://github.com/michelleespranita/Echo2ECG'
 image = 'images/publications/echo2ecg.png'
