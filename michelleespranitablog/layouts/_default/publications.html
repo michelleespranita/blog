@@ -1,12 +1,6 @@
 {{- define "main" -}}
 
 <article class="not-prose">
-  <header class="mb-10">
-    <h1 class="mt-0 mb-0 text-4xl font-semibold text-black dark:text-white">
-      {{- .Title -}}
-    </h1>
-  </header>
-
   {{- with .Params.scholar_url -}}
   <a class="btn mb-10 inline-block" href="{{- . -}}" target="_blank" rel="noopener"
     >View Google Scholar Profile</a

@@ -1,0 +1,88 @@
+{{- define "main" -}}
+
+<article class="not-prose">
+  {{- range .Params.section -}}
+  {{- $section := . -}}
+  <section class="mb-14 last:mb-0">
+    <h2 class="mb-4 text-3xl font-bold text-black dark:text-white">
+      {{- $section.title -}}
+    </h2>
+
+    {{- if eq $section.type "youtube" -}}
+    {{- $max := $section.max_items | default 10 -}}
+    {{- $feedURL := printf "https://www.youtube.com/feeds/videos.xml?channel_id=%s" $section.youtube_channel_id -}}
+    {{- with resources.GetRemote $feedURL -}}
+      {{- $data := . | transform.Unmarshal -}}
+      {{- $entries := first $max $data.entry -}}
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {{- range $entries -}}
+        <a
+          class="block rounded-xl border-[0.5px] border-black/10 no-underline duration-100 hover:opacity-90 dark:border-white/10"
+          href="{{- index .link `-href` -}}"
+          target="_blank"
+          rel="noopener"
+        >
+          <div
+            class="aspect-video w-full overflow-hidden rounded-t-xl bg-black/[3%] dark:bg-white/[6%]"
+          >
+            <img
+              class="h-full w-full object-cover"
+              src="{{- index .group.thumbnail `-url` -}}"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="p-5">
+            <h3
+              class="mt-0 mb-2 text-lg leading-snug font-semibold text-black dark:text-white"
+            >
+              {{- .title -}}
+            </h3>
+            <p class="mt-0 mb-0 text-sm opacity-70">
+              {{- dateFormat "01/02/2006" .published -}}
+            </p>
+          </div>
+        </a>
+        {{- end -}}
+      </div>
+    {{- end -}}
+    {{- else -}}
+    {{- with $section.item -}}
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {{- range . -}}
+      <a
+        class="block rounded-xl border-[0.5px] border-black/10 no-underline duration-100 hover:opacity-90 dark:border-white/10"
+        {{- with .url }} href="{{- . -}}" target="_blank" rel="noopener"{{- end -}}
+      >
+        {{- with .image -}}
+        <div
+          class="aspect-video w-full overflow-hidden rounded-t-xl bg-black/[3%] dark:bg-white/[6%]"
+        >
+          <img
+            class="h-full w-full object-cover"
+            src="{{- . | absURL -}}"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        {{- end -}}
+        <div class="p-5">
+          <h3
+            class="mt-0 mb-2 text-lg leading-snug font-semibold text-black dark:text-white"
+          >
+            {{- .title -}}
+          </h3>
+          {{- with .date -}}
+          <p class="mt-0 mb-0 text-sm opacity-70">{{- . -}}</p>
+          {{- end -}}
+        </div>
+      </a>
+      {{- end -}}
+    </div>
+    {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+</article>
+
+{{- end -}}

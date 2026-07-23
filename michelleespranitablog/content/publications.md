@@ -2,6 +2,7 @@
 menus = ['main']
 title = 'Publications'
 layout = 'publications'
+weight = 2
 research_areas = ['Deep Learning', 'Echocardiography', 'Multimodal Learning', 'Video Understanding', 'Clinical Outcome Prediction']
 
 [[publication]]

@@ -1,0 +1,6 @@
+/* Place custom css here. */
+@reference '../themes/paper/assets/app.css';
+
+:root {
+  --w: calc(900px + 32px * 2);
+}
