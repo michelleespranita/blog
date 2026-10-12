@@ -6,6 +6,14 @@ weight = 2
 research_areas = ['Deep Learning', 'Echocardiography', 'Multimodal Learning', 'Video Understanding', 'Clinical Outcome Prediction']
 
 [[publication]]
+title = 'EchoTab: Learning Measurement-Grounded Representations for Echocardiographic Diagnosis through Tabular Reconstruction'
+venue = 'arXiv preprint 2026'
+paper_url = 'https://arxiv.org/pdf/2610.13599'
+code_url = 'https://github.com/michelleespranita/EchoTab'
+image = 'images/publications/echotab.png'
+authors = '<strong>Michelle Espranita Liman</strong>, Ioana Ionac, Alexander Müller, Eimo Martens, Daniel Rueckert, Philip Müller'
+
+[[publication]]
 title = 'Echo2ECG: Enhancing ECG Representations with Cardiac Morphology from Multi-View Echos'
 venue = 'MICCAI 2026'
 paper_url = 'https://arxiv.org/pdf/2603.08505'
